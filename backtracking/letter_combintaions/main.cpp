@@ -13,11 +13,11 @@ class Solution {
     std::vector<std::string> res = {};
 public:
     std::vector<std::string> letterCombinations(std::string digits) {
-        backtrack(digits, 0, "");
+        backtrackTopping(digits, 0, "");
         return res;
     }
 private:
-    void backtrack(const std::string &digits, size_t pos, const std::string& combo) {
+    void backtrackTopping(const std::string &digits, size_t pos, const std::string& combo) {
         if (pos == digits.size()) {
             res.emplace_back(combo);
             return;
@@ -25,7 +25,7 @@ private:
 
         const std::string &chars = map.at(digits[pos]);
         for (const auto &ch : chars) {
-            backtrack(digits, pos + 1, combo + ch);
+            backtrackTopping(digits, pos + 1, combo + ch);
         }
     }
 };
